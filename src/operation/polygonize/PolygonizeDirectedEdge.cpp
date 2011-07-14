@@ -20,6 +20,8 @@
 #include <geos/operation/polygonize/PolygonizeDirectedEdge.h>
 #include <geos/planargraph/DirectedEdge.h>
 
+#include <iostream>
+
 using namespace geos::planargraph;
 using namespace geos::geom;
 
@@ -106,6 +108,15 @@ void
 PolygonizeDirectedEdge::setRing(EdgeRing *newEdgeRing)
 {
 	edgeRing=newEdgeRing;
+}
+
+std::ostream&
+operator << (std::ostream& s, const PolygonizeDirectedEdge& de)
+{
+	s << de.p0 << " - " << de.p1
+	  << " " << de.quadrant << ":" << de.angle
+	  << " [" << de.label << "]";
+  return s;
 }
 
 } // namespace geos.operation.polygonize

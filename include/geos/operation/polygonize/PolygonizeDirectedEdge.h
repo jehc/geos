@@ -64,6 +64,8 @@ private:
 
 public:
 
+  friend std::ostream& operator<<(std::ostream&, const PolygonizeDirectedEdge&);
+
 	/*
 	 * \brief
 	 * Constructs a directed edge connecting the <code>from</code> node
@@ -117,6 +119,10 @@ public:
 	 */
 	void setRing(EdgeRing *newEdgeRing);
 };
+
+/// Output operator 
+std::ostream& operator << (std::ostream&, const PolygonizeDirectedEdge&);
+
 } // namespace geos::operation::polygonize
 } // namespace geos::operation
 } // namespace geos
